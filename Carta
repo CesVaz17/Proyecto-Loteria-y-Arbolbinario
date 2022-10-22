@@ -1,0 +1,11 @@
+package ProLoteria;
+public class Carta {
+    public String nombre;
+    public Carta(String nombre){
+        this.nombre=nombre;
+    }
+    public String toString(){
+        return "Carta --"+nombre;
+    }
+    
+}
