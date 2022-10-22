@@ -1,0 +1,134 @@
+package EstructuraDeDatosEjercicios;
+public class ArbolBinarioBusqueda {
+    private Nodo raiz;
+    
+    public ArbolBinarioBusqueda(Nodo raiz){
+        this.raiz=raiz;
+    }
+    
+    public Nodo getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(Nodo raiz) {
+        this.raiz = raiz;
+    }
+    private void agregar (Nodo n, Nodo actual){
+        if(actual.getDato()>n.getDato()){
+            if(actual.getIzquierdo()!=null){
+                agregar(n,actual.getIzquierdo());
+            }else{
+                actual.setIzquierdo(n);
+            }
+        }else{
+            if(actual.getDerecho()!=null){
+                agregar(n,actual.getDerecho());
+            }else{
+                actual.setDerecho(n);
+            }
+        }
+    }
+    public void agregar (Nodo n){
+        if(raiz==null){
+            raiz=n;
+        }else{
+            agregar(n,raiz);   
+        }
+    }
+    public void agregar(int dato){
+        agregar (new Nodo(dato));
+    }
+    private void imprimeArbol(Nodo n){
+        if(n!=null){
+            System.out.println(n.getDato());
+            imprimeArbol(n.getDerecho());
+            imprimeArbol(n.getIzquierdo());
+        }
+    }
+    public void imprimir(){
+        imprimeArbol(raiz);
+    }
+    private void imprimeArbol2(Nodo n){
+        if(n!=null){
+            System.out.println(n.getDato());
+            imprimeArbol(n.getIzquierdo());
+            imprimeArbol(n.getDerecho());
+        }
+    }
+    public void imprimirAlreves(){
+        imprimeArbol2(raiz);
+    }
+    private Nodo buscar (int dato){
+        Nodo actual=raiz;
+        while(actual!=null && actual.getDato()!=dato){
+            if(actual.getDato()>dato){
+                actual=actual.getIzquierdo();
+            }else{
+                actual=actual.getDerecho();
+            }
+        }
+        return actual;
+    }
+    
+    public Nodo finMayor(Nodo actual){
+        actual=raiz;
+        Nodo aux=null;
+        if (actual != null)
+    {
+        if (actual.getDerecho() != null)
+            aux = finMayor(actual.getDerecho());
+        else
+            aux = actual;
+    }
+    return aux;
+    }
+    
+    public Nodo finMenor(Nodo actual){
+        actual=raiz;
+        Nodo aux=null;
+        if (actual != null)
+    {
+        if (actual.getIzquierdo() != null)
+            aux = finMenor(actual.getIzquierdo());
+        else
+            aux = actual;
+    }
+    return aux;
+    }
+    
+    public boolean eliminar(Nodo quitar, Nodo actual){
+        Nodo aux;
+        boolean result = false;
+        actual=raiz;
+        if(raiz==null){
+            if(quitar.getDato()<actual.getDato()){
+               eliminar(quitar.getIzquierdo(),actual);
+               actual=null;
+               result=true;
+            }else if(quitar.getDato()>actual.getDato()){
+               eliminar(quitar.getDerecho(),actual);
+               actual=null;
+               result=true;
+        }else{
+                if(quitar.getIzquierdo()== null && quitar.getDerecho()== null){
+                    quitar=null;
+                    result=true;
+                }else{
+                    if(quitar.getIzquierdo()!= null){
+                        aux= finMayor(actual.getIzquierdo());
+                        eliminar(aux,aux.getIzquierdo());
+                        actual=null;
+                        result=true;
+                    }else if(quitar.getDerecho()!= null){
+                        aux= finMenor(actual.getDerecho());
+                        eliminar(aux,aux.getDerecho());
+                        actual=null;
+                        result=true;
+                }
+            }
+        }
+    }
+        return result;
+    }
+}
+
