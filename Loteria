@@ -1,0 +1,88 @@
+package ProLoteria;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Stack;
+
+public class Loteria {
+    Stack<Carta> baraja;
+    public Loteria(){
+        baraja= new Stack<Carta>();
+        agregarCartas();
+        barajear();
+        mostrar();
+        repartir();
+    }
+    private void agregarCartas(){
+        baraja.add(new Carta ("El Gallo"));
+        baraja.add(new Carta ("El Diablo"));
+        baraja.add(new Carta ("La Dama"));
+        baraja.add(new Carta ("El Catrin"));
+        baraja.add(new Carta ("El Paraguas"));
+        baraja.add(new Carta ("La Sirena"));
+        baraja.add(new Carta ("La Escalera"));
+        baraja.add(new Carta ("La Botella"));
+        baraja.add(new Carta ("La Botella"));
+        baraja.add(new Carta ("El Barril"));
+        baraja.add(new Carta ("El Arbol"));
+        baraja.add(new Carta ("El Melon"));
+        baraja.add(new Carta ("El Valiente"));
+        baraja.add(new Carta ("El Gorrito"));
+        baraja.add(new Carta ("La Muerte"));
+        baraja.add(new Carta ("La Pera"));
+        baraja.add(new Carta ("La Bandera"));
+        baraja.add(new Carta ("El Bandolon"));
+        baraja.add(new Carta ("El Violoncello"));
+        baraja.add(new Carta ("La Garza"));
+        baraja.add(new Carta ("El Pajaro"));
+        baraja.add(new Carta ("La Mano"));
+        baraja.add(new Carta ("La Bota"));
+        baraja.add(new Carta ("La Luna"));
+        baraja.add(new Carta ("El Cotorro"));
+        baraja.add(new Carta ("El Borracho"));
+        baraja.add(new Carta ("El Negrito"));
+        baraja.add(new Carta ("El Corazon"));
+        baraja.add(new Carta ("La Sandia"));
+        baraja.add(new Carta ("El Tambor"));
+        baraja.add(new Carta ("El Camaron"));
+        baraja.add(new Carta ("Las Jaras"));
+        baraja.add(new Carta ("El Musico"));
+        baraja.add(new Carta ("La Araña"));
+        baraja.add(new Carta ("El Soldado"));
+        baraja.add(new Carta ("La Estrella"));
+        baraja.add(new Carta ("El Cazo"));
+        baraja.add(new Carta ("El Mundo"));
+        baraja.add(new Carta ("El Apache"));
+        baraja.add(new Carta ("El Nopal"));
+        baraja.add(new Carta ("El Alacran"));
+        baraja.add(new Carta ("La Rosa"));
+        baraja.add(new Carta ("La Calavera"));
+        baraja.add(new Carta ("La Campana"));
+        baraja.add(new Carta ("El Cantarito"));
+        baraja.add(new Carta ("El Venado"));
+        baraja.add(new Carta ("El Sol"));
+        baraja.add(new Carta ("La Corona"));
+        baraja.add(new Carta ("La Chalupa"));
+        baraja.add(new Carta ("El Pino"));
+        baraja.add(new Carta ("El Pescado"));
+        baraja.add(new Carta ("La Palma"));
+        baraja.add(new Carta ("La Maceta"));
+        baraja.add(new Carta ("El Arpa"));
+        baraja.add(new Carta ("La Rana"));
+    }
+    public void barajear(){
+        Collections.shuffle(baraja);
+    }
+    private void mostrar(){
+        for (Carta carta : baraja) {
+            System.out.println(carta.toString());
+        }
+    }
+    private void repartir(){
+        int contador;
+        System.out.println("");
+        while (!baraja.isEmpty()){
+            System.out.println("Salio: "+baraja.pop());
+        }
+    }
+}
