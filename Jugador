@@ -1,0 +1,11 @@
+package ProLoteria;
+
+import java.util.Collection;
+import java.util.LinkedList;
+
+public class Jugador extends Loteria{
+    Collection<LinkedList<Carta>> tablon;
+    public Jugador(){
+        
+    }    
+}
